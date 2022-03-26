@@ -2,7 +2,7 @@
 SpringBatchのサンプル
 
 ## 環境案
-* Azure Container Instance
+* Azure Container Instance（+Automationでスケジューリング)
 * Azure WebJobs
 
 ★メリデメ知りたい。
@@ -45,8 +45,8 @@ ENTRYPOINT ["java","-jar","/app.jar"]
     * 作ったタグを利用して作成 
 
 
-### ContainerInstance起動
-想定通りの標準出力を確認
+### PortalからContainerInstance起動
+想定通りの標準出力を確認　OK!
 ```
 2022-03-26 02:01:59.649  INFO 18 --- [           main] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
 2022-03-26 02:02:00.053  INFO 18 --- [           main] c.e.batchdemo.BatchdemoApplication       : Started BatchdemoApplication in 6.601 seconds (JVM running for 8.067)
