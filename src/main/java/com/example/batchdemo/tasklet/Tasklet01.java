@@ -17,6 +17,7 @@ public class Tasklet01 implements Tasklet {
     @Override
     public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
         System.out.println("tasklet01!!");
+        System.out.println("メール送信します");
         mailUtil.send();
         return RepeatStatus.FINISHED;
     }
