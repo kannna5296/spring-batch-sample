@@ -1,0 +1,7 @@
+sendgrid:
+  host: api.sendgrid.com
+  apiKey: ${SENDGRID_API_KEY}
+
+mail:
+  to: ${TO_MAIL}
+  from: ${FROM_MAIL}

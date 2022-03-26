@@ -1,0 +1,7 @@
+sendgrid:
+  host: api.sendgrid.com
+  apiKey: hogehoge
+  test: true
+mail:
+  to: chomechome
+  from: piyopiyo
