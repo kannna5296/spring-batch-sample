@@ -7,6 +7,8 @@ trigger:
     include:
       - refs/tags/v*
 
+pr: none
+
 resources:
 - repo: self
 
@@ -16,7 +18,7 @@ variables:
   imageRepository: 'batchsample'
   containerRegistry: 'devacrsample.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
-  tag: '$(Build.BuildId)'
+  tagVersion: '$(Build.SourceBranchName)'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -48,4 +50,4 @@ stages:
         dockerfile: $(dockerfilePath)
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
-          $(tag)
+          $(tagVersion)
