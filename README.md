@@ -43,3 +43,18 @@ ENTRYPOINT ["java","-jar","/app.jar"]
 
 * ContainerInstance作成 Portalから
     * 作ったタグを利用して作成 
+
+
+### ContainerInstance起動
+想定通りの標準出力を確認
+```
+2022-03-26 02:01:59.649  INFO 18 --- [           main] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2022-03-26 02:02:00.053  INFO 18 --- [           main] c.e.batchdemo.BatchdemoApplication       : Started BatchdemoApplication in 6.601 seconds (JVM running for 8.067)
+2022-03-26 02:02:00.067  INFO 18 --- [           main] o.s.b.a.b.JobLauncherApplicationRunner   : Running default command line with: []
+2022-03-26 02:02:00.269  INFO 18 --- [           main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=job]] launched with the following parameters: [{run.id=1}]
+ジョブ開始
+2022-03-26 02:02:00.395  INFO 18 --- [           main] o.s.batch.core.job.SimpleStepHandler     : Executing step: [step1]
+tasklet01!!
+2022-03-26 02:02:00.439  INFO 18 --- [           main] o.s.batch.core.step.AbstractStep         : Step: [step1] executed in 43ms
+ジョブ終了
+```
