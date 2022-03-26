@@ -3,6 +3,9 @@ SpringBatchのサンプル
 
 ## 環境案
 * Azure Container Instance（+Automationでスケジューリング)
+<img src="https://user-images.githubusercontent.com/58777139/160237408-3f55cb89-5ef3-447e-af38-a3c4b8e2601c.png" width="600px">
+引用元：https://tech-lab.sios.jp/archives/19859/
+<br>
 * Azure WebJobs
 
 ★メリデメ知りたい。
@@ -31,9 +34,10 @@ docker push {ログインサーバ名}/{リポジトリ名}:{切りたいタグ�
 #Java17で動かしたい
 FROM openjdk:17
 
-ARG JAR_FILE=build/libs/*.jar
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENV TZ Asia/Tokyo
+
+COPY build/libs/batchdemo-0.0.1-SNAPSHOT.jar /usr/local/bin/batchdemo.jar
+ENTRYPOINT ["java","-jar","/usr/local/bin/batchdemo.jar"]
 ```
 * イメージをビルド
 `docker build --build-arg JAR_FILE=build/libs/\*.jar -t {ログインサーバ名}/{リポジトリ名} .`
