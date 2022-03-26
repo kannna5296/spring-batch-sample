@@ -30,6 +30,17 @@ stages:
     pool:
       vmImage: $(vmImageName)
     steps:
+    # gradle build(jar作る)
+    - task: Gradle@2
+      displayName: bootJar
+      inputs:
+        workingDirectory: ${Build.SourcesDirectory}
+        gradleWrapperFile: ${Build.SourcesDirectory}/gradlew
+        gradleOptions: '-Xmx3072m'
+        javaHomeOption: 'JDKVersion'
+        jdkVersionOption: '17'
+        jdkArchitectureOption: 'x64'
+        tasks: ':batchdemo:bootJar'
     - task: Docker@2
       displayName: Build and push an image to container registry
       inputs:
