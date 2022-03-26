@@ -9,8 +9,8 @@ SpringBatchのサンプル
 
 
 ## ContainerInstanceで動かすときのTodo
-* ContainerResitry作成　　Portalから
-　　　　*　管理ユーザ有効に（これしないとログインできない）
+* ContainerResitry作成(Portalから)
+    * 管理ユーザ有効に（これしないとログインできない）
 * AzureCLIインストール
 * 手元でACRにPush（お試しイメージ)(練習)
 ```
