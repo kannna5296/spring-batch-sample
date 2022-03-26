@@ -34,8 +34,7 @@ stages:
     - task: Gradle@2
       displayName: bootJar
       inputs:
-        workingDirectory: ${Build.SourcesDirectory}
-        gradleWrapperFile: ${Build.SourcesDirectory}/gradlew
+        gradleWrapperFile: 'gradlew'
         gradleOptions: '-Xmx3072m'
         javaHomeOption: 'JDKVersion'
         jdkVersionOption: '17'
