@@ -28,6 +28,7 @@ docker push {ログインサーバ名}/{リポジトリ名}:{切りたいタグ�
 
 * Dockerfile用意
 ```
+#Java17で動かしたい
 FROM openjdk:17
 
 ARG JAR_FILE=build/libs/*.jar
@@ -42,7 +43,7 @@ ENTRYPOINT ["java","-jar","/app.jar"]
 `docker push {ログインサーバ名}/{リポジトリ名}:{切りたいタグ名}`
 
 * ContainerInstance作成 Portalから
-    * 作ったタグを利用して作成 
+    * 作ったタグをPullするよう設定する 
 
 
 ### PortalからContainerInstance起動
@@ -60,12 +61,13 @@ tasklet01!!
 ```
 
 ### Schedule設定
+これが詳しくてNICE！<br>
 https://tech-lab.sios.jp/archives/19859/
 
-* Azure Automationアカウント作る
-　　　　* 実行アカウントも作る（必須）
-*　作ったAutomationアカウントからRunbook作成（実行方法はPowershell)
-*　Powershellには下記を登録し保存(ソースは上記のリンク）
+* Azure Automationアカウント作る 
+    * 実行アカウントも作る（必須)
+* 作ったAutomationアカウントからRunbook作成（実行方法はPowershell)
+* Powershellには下記を登録し保存(ソースは上記のリンク）
 ```
 # 以前のログイン情報をこのRunbookに反映させないようにする。
 Disable-AzContextAutosave –Scope Process
@@ -95,6 +97,7 @@ while(!($connectionResult) -And ($logonAttempt -le 10))
 Invoke-AzResourceAction -ResourceGroupName *** -ResourceName *** -Action Start -ResourceType Microsoft.ContainerInstance/containerGroups -Force
 ```
  
-*　上記Runbookを公開
-*　公開したRunbookからScheduleを作成
+* 上記Runbookを公開
+    * 後悔しないとSchedule設定できないらしい
+* 公開したRunbookからScheduleを作成
 
