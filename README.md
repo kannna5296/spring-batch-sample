@@ -45,6 +45,8 @@ ENTRYPOINT ["java","-jar","/app.jar"]
 * ContainerInstance作成 Portalから
     * 作ったタグをPullするよう設定する 
 
+★latestPushのやり方は[こちら](https://github.com/kannna5296/spring-batch-sample/issues/3)
+
 
 ### PortalからContainerInstance起動
 想定通りの標準出力を確認　OK!
@@ -104,3 +106,4 @@ Invoke-AzResourceAction -ResourceGroupName *** -ResourceName *** -Action Start -
 めんどいなと思うところ
 
 * もしかしてContainerInstance(withACR)って一回みるイメージ決めて作成したら後からいじれない...??
+　　　　*　>ACRへのPushで次々に使うイメージ変えたい時は、latestを見せる 
