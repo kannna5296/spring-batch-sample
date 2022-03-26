@@ -1,5 +1,6 @@
 FROM openjdk:17
 
-ARG JAR_FILE=build/libs/*.jar
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+ENV TZ Asia/Tokyo
+
+COPY build/libs/batchdemo-0.0.1-SNAPSHOT.jar /usr/local/bin/batchdemo.jar
+ENTRYPOINT ["java","-jar","/usr/local/bin/batchdemo.jar"]
