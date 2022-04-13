@@ -14,7 +14,7 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '{{ devsampleacrConnection.Id }}'
+  dockerRegistryServiceConnection: 'devsampleacrConnection'
   imageRepository: 'batchsample'
   containerRegistry: 'devsampleacr.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
