@@ -29,7 +29,7 @@ public class MailUtil {
         Email from = new Email(fromAddress);
         String subject = "Sending with SendGrid is Fun";
         Email to = new Email(toAddress);
-        Content content = new Content("text/plain", "and easy to do anywhere, even with Java");
+        Content content = new Content("text/plain", "おはようございます！");
         Mail mail = new Mail(from, subject, to, content);
 
         SendGrid sg = new SendGrid(key);
